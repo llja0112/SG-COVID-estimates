@@ -1,7 +1,7 @@
 library(EpiNow2)
 library(dplyr)
 
-Covid2020 <- read.csv('../data/COVID_SG.csv')
+Covid2020 <- read.csv('../data/COVID_SG_community.csv')
 
 # jpeg('graph.jpg')
 # plot(as.incidence(Flu2009$incidence$I, dates=Flu2009$incidence$dates))
@@ -14,7 +14,7 @@ generation_time <- get_generation_time(disease = "SARS-CoV-2", source = "ganyani
 incubation_period <- get_incubation_period(disease = "SARS-CoV-2", source = "lauer")
 
 
-reported_cases <- Covid2020 %>% select(Date_reported, New_cases) %>% rename(date=Date_reported, confirm=New_cases)
+reported_cases <- Covid2020 %>% select(Date_reported, Total_community_cases) %>% rename(date=Date_reported, confirm=Total_community_cases)
 
 reported_cases$date <- as.Date(reported_cases$date)
 
